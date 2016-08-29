@@ -21,16 +21,7 @@ function _login($forward = '') {
 	if ($failed['count'] >= 5) {
 		message('输入密码错误次数超过5次，请在5分钟后再登录',referer(), 'info');
 	}
-	if (!empty($_W['setting']['copyright']['verifycode'])) {
-		$verify = trim($_GPC['verify']);
-		if(empty($verify)) {
-			message('请输入验证码');
-		}
-		$result = checkcaptcha($verify);
-		if (empty($result)) {
-			message('输入验证码错误');
-		}
-	}
+
 	if(empty($username)) {
 		message('请输入要登录的用户名');
 	}
